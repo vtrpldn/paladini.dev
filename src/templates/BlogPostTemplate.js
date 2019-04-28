@@ -1,18 +1,18 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Bio from "../components/Bio"
+import Layout from "../components/Layout"
+import SEO from "../components/Seo"
 
-const BlogPostTemplate = ({data, location, pageContext}) => {
+const BlogPostTemplate = ({data, pageContext}) => {
 
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout title={siteTitle}>
       <SEO
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
@@ -44,7 +44,6 @@ const BlogPostTemplate = ({data, location, pageContext}) => {
     </Layout>
   )
 }
-
 
 export default BlogPostTemplate
 
