@@ -5,7 +5,7 @@ import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 
-const BlogPostTemplate = ({data, pageContext}) => {
+const BlogPostTemplate = ({ data, pageContext }) => {
 
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
@@ -22,9 +22,7 @@ const BlogPostTemplate = ({data, pageContext}) => {
         {post.frontmatter.date}
       </p>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      <hr/>
-      <Bio />
-
+      {/* <hr />
       <ul>
         <li>
           {previous && (
@@ -40,7 +38,7 @@ const BlogPostTemplate = ({data, pageContext}) => {
               </Link>
           )}
         </li>
-      </ul>
+      </ul> */}
     </Layout>
   )
 }

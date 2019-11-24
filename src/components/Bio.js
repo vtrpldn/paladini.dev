@@ -1,27 +1,20 @@
-/**
- * Bio component that queries for data
- * with Gatsby's StaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/static-query/
- */
-
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
+import styled from 'styled-components'
+
+const Wrap = styled.div`
+`
 
 const BioQueryWrapper = () => <StaticQuery query={bioQuery} render={Bio} />
 
 const Bio = data => {
   const { author, social } = data.site.siteMetadata
   return (
-    <div>
+    <Wrap>
       <p>
-        Written by <strong>{author}</strong> who lives in São
-        Gonçalo and works at Stone Pagamentos.
-        <a href={`https://twitter.com/${social.twitter}`}>
-          You should follow him on Twitter
-        </a>
+        por <a href={`https://twitter.com/${social.twitter}`}>Vitor Paladini</a>
       </p>
-    </div>
+    </Wrap>
   )
 }
 

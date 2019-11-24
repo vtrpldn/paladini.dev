@@ -1,6 +1,7 @@
 import React from "react"
 import Header from './Header'
 import styled from 'styled-components'
+import GlobalStyles from '../GlobalStyles'
 
 const Wrapper = styled.div`
   width: 100%;
@@ -8,16 +9,23 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `
 
+const Footer = styled.div`
+  margin: 30px 0;
+`
+
 const Layout = ({ title, children }) => {
   return (
     <Wrapper>
+      <GlobalStyles />
       <Header />
-      <main>{children}</main>
-      <footer>
+      <main>
+        {children}
+      </main>
+      <Footer>
         © {new Date().getFullYear()}, Built with
         {` `}
-        <a href="https://www.gatsbyjs.org">Gatsby</a>
-      </footer>
+        <a href="https://www.gatsbyjs.org" target="_blank">Gatsby</a>
+      </Footer>
     </Wrapper>
   )
 }

@@ -1,12 +1,17 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import styled from 'styled-components'
 
-import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 
+const Post = styled.div`
+  display: block;
+  margin-bottom: 30px;
+`
+
 const BlogIndex = ({ data }) => {
-  
+
   const siteTitle = data.site.siteMetadata.title
   const posts = data.allMarkdownRemark.edges
 
@@ -16,23 +21,22 @@ const BlogIndex = ({ data }) => {
         title="All posts"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
-      <Bio />
       {posts.map(({ node }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
-          <div key={node.fields.slug}>
-            <h3>
+          <Post key={node.fields.slug}>
+            <h2>
               <Link to={node.fields.slug}>
                 {title}
               </Link>
-            </h3>
-            <small>{node.frontmatter.date}</small>
+            </h2>
+            <p>{node.frontmatter.date}</p>
             <p
               dangerouslySetInnerHTML={{
                 __html: node.frontmatter.description || node.excerpt,
               }}
             />
-          </div>
+          </Post>
         )
       })}
     </Layout>
