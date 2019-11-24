@@ -1,6 +1,6 @@
 ---
-title: My Second Post!
-date: "2015-05-06T23:46:37.121Z"
+title: Como ler cores em hexadecimal
+date: "2019-11-23T23:46:37.121Z"
 description: ""
 ---
 

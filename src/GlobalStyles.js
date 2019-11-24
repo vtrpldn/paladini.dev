@@ -1,7 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Roboto');
+  @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
+  @import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
 
   *,
   *::before,
@@ -17,33 +18,34 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Bitter', serif;
   }  
   
   h1 {
     line-height: 1.35;
     margin-bottom: 20px;
     color: #35357f;
+    font-family: 'Work Sans', sans-serif;
   }
 
   h2 {
-    font-size: 21px;
     line-height: 1.35;
     margin-bottom: 20px;
     color: #35357f;
+    font-family: 'Work Sans', sans-serif;
   }
 
   h3 {
-    font-size: 16px;
     line-height: 1.35;
     margin-bottom: 12px;
     color: #35357f;
+    font-family: 'Work Sans', sans-serif;
   }
   
   p, li {
     color: #2b2b2b;
-    line-height: 1.4;
-    margin-bottom: 12px;
+    line-height: 1.5;
+    margin-bottom: 30px;
     font-size: 18px;
     &:last-child {
       margin-bottom: 0;
