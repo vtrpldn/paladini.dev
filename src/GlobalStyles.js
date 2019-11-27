@@ -1,9 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Work+Sans&display=swap');
-  @import url('https://fonts.googleapis.com/css?family=Bitter&display=swap');
-
   *,
   *::before,
   *::after {

@@ -67,6 +67,14 @@ module.exports = {
         icon: `content/assets/gatsby-icon.png`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-web-font-loader',
+      options: {
+        google: {
+          families: ['Work Sans:400,700', 'Bitter:400,700']
+        }
+      }
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`
   ],
