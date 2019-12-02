@@ -6,7 +6,7 @@ description: "Eu trabalho com front-end já faz alguns anos e se tem uma coisa q
 
 Trabalho com front-end já faz alguns anos e se tem uma coisa que sempre tive que lidar são cores em hexadecimal.
 
-\#FF2354, #454ACC, #C0FFEE, você sabe do que estou falando.
+<span style="color: #FF2354">#FF2354</span>, <span style="color: #454ACC">#454ACC</span>, <span style="color: #C0FFEE">#C0FFEE</span>, você sabe do que estou falando.
 
 Recentemente uma coisa começou a me incomodar, apesar de usar esse tipo de representação por ANOS, nunca fui capaz de identificar uma cor mais diferentona em hexadecimal.
 
@@ -62,10 +62,10 @@ Mas o ser humano é ambicioso, oito cores numa tela é muito pouco. E única man
 
 Imagine agora que ao invés usar apenas **um bit** para vermelho (R), apagado e aceso, você tem **dois bits** e usa eles da seguinte forma:
 
-- 00 = R 0% aceso
-- 01 = R 33% aceso
-- 10 = R 66% aceso
-- 11 = R 100% aceso
+- <span style="color: #000000">00 = R 0% aceso</span>
+- <span style="color: #550000">01 = R 33% aceso</span>
+- <span style="color: #AA0000">10 = R 66% aceso</span>
+- <span style="color: #FF0000">11 = R 100% aceso</span>
 
 Repita a mesma coisa para verde (G) e azul (B), somando **seis bits** por cor final.
 
@@ -87,9 +87,9 @@ Imagina só, escrever essas cores em bits seria loucura! Arrumar um nome para ca
 
 Se liga nessa cor _24-bits_, por exemplo. Escrevi ela em binário, hexadecimal e nome único que acabei de inventar:
 
-- Binário: 11110000 01011100 00001111 
-- Hexadecimal: F05C0F
-- Nome único: Laranja Laranjoso Laranjito, o Alaranjado
+- Binário: <span style="color: #F05C0F">11110000 01011100 00001111</span>
+- Hexadecimal: <span style="color: #F05C0F">F05C0F</span>
+- Nome único: <span style="color: #F05C0F">Laranja Laranjoso Laranjito, o Alaranjado</span>
 
 Deu pra ver qual forma é melhor de representar né?
 
@@ -107,39 +107,39 @@ Vamos lá, atenção para o uso dos termos **dupla**, e **destaque**:
 
 1 - Se **uma dupla** é muito mais alta que as outras, essa é a cor de **destaque**. Por exemplo:
 
-- \#**FF**2A2A - Muito mais R do que G e B. Tom de vermelho.
-- \#CC**EE**CC - Muito mais G do que R e B. Tom de verde.
+- <span style="color: #FF2a2a">#**FF**2A2A</span> - Muito mais R do que G e B. Tom de vermelho.
+- <span style="color: #AAEEAA">\#AA**EE**AA</span> - Muito mais G do que R e B. Tom de verde.
 
 
 2 - Se **duas duplas** são muito mais altas, a cor de **destaque** é uma cor secundária. 
 
 Lembrando, R + G = Amarelo (Y), R + B = Magenta (M), G + B  = Ciano (C).
 
-- \#**DEDE**3A - R e G altos, B baixo. Tom de amarelo.
-- \#2B**F1F1** - G e B altos, R baixo. Tom de ciano.
+- <span style="color: #FEFE3a">\#**FEFE**3A</span> - R e G altos, B baixo. Tom de amarelo.
+- <span style="color: #2BF1f1">\#2B**F1F1**</span> - G e B altos, R baixo. Tom de ciano.
 
 3 - Se as **três duplas** de caracteres forem iguais, não existe nenhum **destaque**, então só pode ser preto, branco ou cinza. Por exemplo:
 
-- \#000000 - Preto
-- \#3A3A3A - Cinza escuro, valores mais baixos
-- \#DEDEDE - Cinza claro, valores mais altos
-- \#FFFFFF - Branco
+- <span style="color: #000000">\#000000</span> - Preto
+- <span style="color: #3A3A3A">\#3A3A3A</span> - Cinza escuro, valores mais baixos
+- <span style="color: #DEDEDE; ">\#DEDEDE</span> - Cinza claro, valores mais altos
+- <span style="color: #FFFFFF; background: #2b2b2b">\#FFFFFF</span> - Branco
 
 4 - Quanto **mais alto o valor** do **destaque**, mais iluminado o resultado. Por exemplo:
 
-- \#**FFFF**00 - Amarelo absoluto
-- \#**9999**00 - Amarelo mais escuro
-- \#**1111**00 - Amarelo praticamente preto
+- <span style="color: #FFFF00">#**FFFF**00</span> - Amarelo absoluto
+- <span style="color: #999900">#**9999**00</span> - Amarelo mais escuro
+- <span style="color: #111100">#**1111**00</span> - Amarelo praticamente preto
 
 5 - MAS, se o **destaque** não for assim tão grande fica tudo meio acinzentado, com cores menos vivas, lembra da regra 3? Por exemplo:
 
-- \#**FFFF**DD - Amarelo clarinho, tom pastel. 
+- <span style="color: #FFFFDD; background: #2b2b2b">\#**FFFF**DD</span> - Amarelo clarinho, tom pastel. 
 
 Ou seja, se você pegar #FFFFFF e tirar um pouco de Azul, a mistura de Vermelho e Verde prevalece, e a cor começa a tender ao Amarelo!
 
 6 - E pra fechar, se **uma dupla** for alta (FF), **a outra** média (88) e outra baixa (00) você vai precisar de ajuda porque aí o negócio complica...
 
-Pensa aqui comigo, se quantidades iguais de Vermelho (R) e Verde (G) criam Amarelo (Y), que cor você acha é que é #FF8800?
+Pensa aqui comigo, se quantidades iguais de Vermelho (R) e Verde (G) criam Amarelo (Y), que cor você acha é que é **#FF8800**?
 
 Pare e pense por alguns instantes antes de seguir com o texto.
 
@@ -163,9 +163,9 @@ _ok, vamos nessa_
 
 Se você chutou que é laranja pode passar na recepção e tirar seu prêmio. 
 
-\#FF8800 dá essa cor porque tem todo o R possível, mas só metade do G, o que puxa a combinação cromática mais para o vermelho.
+<span style="color: #FF8800">\#FF8800</span> dá essa cor porque tem todo o R possível, mas só metade do G, o que puxa a combinação cromática mais para o vermelho.
 
-Invertendo a ordem você fica com #88FF00, metade do R e todo G possível, o que dá um charmoso verde amarelado.
+Invertendo a ordem você fica com <span style="color: #88FF00">#88FF00</span>, metade do R e todo G possível, o que dá um charmoso verde amarelado.
 
 ##Vamos aprender na prática
 
