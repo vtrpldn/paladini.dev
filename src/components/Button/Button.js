@@ -7,7 +7,7 @@ const Wrap = styled.button`
   position: relative;
   display: inline-block;
   background-color: #35357f;
-  color: #e7e7e7;
+  color: #FFFFFF;
   font-size: 16px;
   line-height: 1.4;
   padding: 7px 20px;
