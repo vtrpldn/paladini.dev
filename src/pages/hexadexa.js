@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from "react"
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+import { Link } from 'gatsby'
 import Layout from "../components/Layout"
-
-// Bugs to fix:
-
-// Click too fast and the state doesn't update
-// Timer state update rerenders the whole app
-
-const randHEX = () => '#' + Math.floor(Math.random() * 16777215).toString(16);
-
-const draw = () => {
-  const values = Array(4).fill(null).map(() => randHEX())
-
-  return {
-    values,
-    answer: values[Math.floor(Math.random() * values.length)]
-  }
-}
+import Button from "../components/Button/Button"
 
 const STATUS = {
   START: 'start',
@@ -25,8 +11,69 @@ const STATUS = {
 }
 
 const CONFIG = {
-  TIME: 30
+  TIME: 30,
+  COLORS: 4,
+  PENALTY: 2
 }
+
+const SCORE_MESSAGES = [
+  'Faltou esforço aí namoral...',
+  'Um é melhor do que nenhum.',
+  'Você sabia que jacaré não tem pescoço?',
+  'Uau, três pontos!',
+  'Você acertou quatro cores, qual o seu segredo?',
+  'Nada mal, você é quase um profissional!'
+]
+
+const randHEX = () => "#000000".replace(/0/g, () => (~~(Math.random() * 16)).toString(16))
+
+const draw = () => {
+  const values = Array(CONFIG.COLORS).fill(null).map(() => randHEX())
+
+  return {
+    values,
+    answer: values[Math.floor(Math.random() * values.length)]
+  }
+}
+
+const CurrentColor = styled.div`
+  width: 100%;
+  padding-bottom: 50%;
+  border-radius: 4px;
+  transition: background-color .3s ease;
+  ${({ background }) => background && css`
+    background-color: ${background};
+  `}
+`
+
+const Choices = styled.div`
+  display: flex;
+`
+
+const ChoicesColor = styled.div`
+  flex: 1;
+  padding: 20px 0;
+  text-align: center;
+  cursor: pointer;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: transform .3s ease;
+  &:hover {
+    transform: translateY(-3px);
+  }
+`
+
+const Info = styled.div`
+  display: flex;
+  font-size: 20px;
+  margin: 20px 0;
+`
+
+const InfoItem = styled.div`
+  flex: 1;
+  display: flex;
+`
 
 const Game = ({ scoreIncrease, timeDecrease }) => {
   const [current, setCurrent] = useState(draw())
@@ -39,76 +86,107 @@ const Game = ({ scoreIncrease, timeDecrease }) => {
       console.log('errrrrrrou', current.answer, value)
       timeDecrease()
     }
+    setCurrent(draw())
   }
 
   return (
     <>
-      {console.log(current)}
-      {current.values.map((value, index) => (
-        <div key={index} onClick={() => handleClick(value)}>
-          {value}
-        </div>
-      ))}
+      <Choices>
+        {current.values.map((value, index) => (
+          <ChoicesColor
+            key={index}
+            onClick={() => handleClick(value)}
+          >
+            {value}
+          </ChoicesColor>
+        ))}
+      </Choices>
+      <CurrentColor background={current.answer} />
     </>
   )
 }
 
 const Hexadexa = () => {
-  const [status, setStatus] = useState(STATUS.GAME)
+  const [status, setStatus] = useState(STATUS.START)
   const [time, setTime] = useState(CONFIG.TIME)
   const [score, setScore] = useState(0)
+  const [newPlayer, setNewPlayer] = useState(true)
 
-  // useEffect(() => {
-  //   if (status === STATUS.GAME) {
-  //     const timer = setInterval(() => {
-  //       setTime(time => time - 1)
-  //     }, 500)
-  //     return () => clearTimeout(timer);
-  //   }
-  // }, [status])
+  const cleanUp = () => {
+    setStatus(STATUS.START)
+    setTime(CONFIG.TIME)
+    setScore(0)
+    setNewPlayer(false)
+  }
 
-  // useEffect(() => {
-  //   if (time < 1) {
-  //     setStatus(STATUS.SCORE)
-  //   }
-  // }, [time])
+  useEffect(() => {
+    if (status === STATUS.GAME) {
+      const timer = setInterval(() => {
+        setTime(time => time - 1)
+      }, 1000)
+      return () => clearTimeout(timer);
+    }
+  }, [status])
+
+  useEffect(() => {
+    if (time < 1) {
+      setStatus(STATUS.SCORE)
+    }
+  }, [time])
 
   return (
     <Layout title="Hexadexa">
-      {(status === STATUS.START) && (
-        <>
-          <h1>Bem vindo ao Hexadexa!</h1>
-          <p>Você tem {CONFIG.TIME} segundos para acertar o maior número possível de cores.</p>
-          <p>Elas estarão em hexadecimal então é melhor você ter lido <a href="#">esse texto.</a></p>
-          <p>Cada acerto vale um ponto, cada erro te custa 2 segundos.</p>
-          <button onClick={() => setStatus(STATUS.GAME)}>Começar!</button>
-        </>
-      )}
-
-      {(status === STATUS.GAME) && (
-        <>
+      <div>
+        {(status === STATUS.START) && (
           <div>
-            Tempo restante: {time} | Pontos: {score}
+            <h1>Bem vindo {newPlayer ? '' : 'de volta'} ao Hexadexa</h1>
+            <p>O jogo de acertar cores para toda a familia!</p>
+            <h2>Como jogar</h2>
+            <p>Será exibida uma cor aleatória e você terá que escolher uma entre {CONFIG.COLORS} disponíveis. Como as alternativas estarão em hexadecimal é melhor você ter lido <a href="#">esse texto.</a></p>
+            <p>Pra dar uma EMOÇÃO, você só tem {CONFIG.TIME} segundos para acertar o maior número possível. Senão fica muito fácil né?</p>
+            <p>Cada acerto vale 1 ponto e cada erro vai te custar {CONFIG.PENALTY} segundos.</p>
+            <Button onClick={() => setStatus(STATUS.GAME)}>
+              Clique aqui para começar
+            </Button>
           </div>
-          <Game
-            scoreIncrease={() => setScore(score => score + 1)}
-            timeDecrease={() => setTime(time => time - 2)}
-          />
-        </>
-      )}
+        )}
 
-      {(status === STATUS.SCORE) && (
-        <>
-          Parabéns, você fez {score} pontos.
-          <button onClick={() => {
-            setTime(CONFIG.TIME)
-            setStatus(STATUS.START)
-          }}>Voltar</button>
-        </>
-      )}
+        {(status === STATUS.GAME) && (
+          <div>
+            <Info>
+              <InfoItem>
+                <div>Tempo:</div>
+                <div>{time}</div>
+              </InfoItem>
+              <InfoItem>
+                <div>Pontos:</div>
+                <div>{score}</div>
+              </InfoItem>
+            </Info>
+            <Game
+              scoreIncrease={() => setScore(score => score + 1)}
+              timeDecrease={() => setTime(time => time - CONFIG.PENALTY)}
+            />
+          </div>
+        )}
+
+        {(status === STATUS.SCORE) && (
+          <div>
+            <h1>Você fez {score} {score === 1 ? 'ponto' : 'pontos'} no Hexadexa.</h1>
+            <h2>
+              {SCORE_MESSAGES[score] || 'Você fez tantos pontos que eu desisti de escrever uma mensagem customizada, parabéns! Tente jogar pior da próxima vez.'}
+            </h2>
+            <Button onClick={cleanUp}>
+              {score === 2 ? 'Que porra de mensagem é essa?' : 'Jogar de novo'}
+            </Button>
+            <Link to="/" style={{ marginLeft: '15px' }}>
+              <Button secondary>Voltar para home</Button>
+            </Link>
+          </div>
+        )}
+      </div>
     </Layout>
   )
-
 }
 
 export default Hexadexa

@@ -19,30 +19,47 @@ const GlobalStyle = createGlobalStyle`
   }  
   
   h1 {
-    line-height: 1.35;
+    line-height: 1.5;
     margin-bottom: 20px;
     color: #35357f;
     font-family: 'Work Sans', sans-serif;
   }
 
   h2 {
-    line-height: 1.35;
+    line-height: 1.5;
     margin-bottom: 20px;
     color: #35357f;
     font-family: 'Work Sans', sans-serif;
   }
 
   h3 {
-    line-height: 1.35;
+    line-height: 1.5;
     margin-bottom: 12px;
     color: #35357f;
     font-family: 'Work Sans', sans-serif;
   }
   
-  p, li {
+  p {
     color: #2b2b2b;
     line-height: 1.5;
     margin-bottom: 30px;
+    font-size: 18px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  ul {
+    margin-bottom: 30px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  li {
+    color: #2b2b2b;
+    line-height: 1.5;
+    margin-bottom: 10px;
     font-size: 18px;
     &:last-child {
       margin-bottom: 0;
