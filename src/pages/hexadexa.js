@@ -11,8 +11,8 @@ const STATUS = {
 }
 
 const CONFIG = {
-  TIME: 30,
-  COLORS: 4,
+  TIME: 60,
+  COLORS: 3,
   PENALTY: 2
 }
 
