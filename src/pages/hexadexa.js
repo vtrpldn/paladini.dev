@@ -142,7 +142,7 @@ const Hexadexa = () => {
             <h1>Bem vindo {newPlayer ? '' : 'de volta'} ao Hexadexa</h1>
             <p>O jogo de acertar cores para toda a familia!</p>
             <h2>Como jogar</h2>
-            <p>Será exibida uma cor aleatória e você terá que escolher uma entre {CONFIG.COLORS} disponíveis. Como as alternativas estarão em hexadecimal é melhor você ter lido <a href="#">esse texto.</a></p>
+            <p>Será exibida uma cor aleatória e você terá que escolher uma entre {CONFIG.COLORS} disponíveis. Como as alternativas estarão em hexadecimal é melhor você ter lido <a href="/como-ler-cores-em-hexadecimal/" target="_blank">esse texto.</a></p>
             <p>Pra dar uma EMOÇÃO, você só tem {CONFIG.TIME} segundos para acertar o maior número possível. Senão fica muito fácil né?</p>
             <p>Cada acerto vale 1 ponto e cada erro vai te custar {CONFIG.PENALTY} segundos.</p>
             <Button onClick={() => setStatus(STATUS.GAME)}>
