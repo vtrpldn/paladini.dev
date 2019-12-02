@@ -7,6 +7,7 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 650px;
   margin: 0 auto;
+  padding: 0 15px;
 `
 
 const Footer = styled.div`

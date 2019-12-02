@@ -30,7 +30,7 @@ const BlogIndex = ({ data }) => {
                 {title}
               </Link>
             </h1>
-            <p>Publicado em {node.frontmatter.date}</p>
+            <p>Publicado em: {node.frontmatter.date}</p>
             <p
               dangerouslySetInnerHTML={{
                 __html: node.frontmatter.description || node.excerpt,
