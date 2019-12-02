@@ -1,12 +1,12 @@
 ---
 title: Como ler cores em hexadecimal
 date: "2019-11-23T23:46:37.121Z"
-description: ""
+description: "Eu trabalho com front-end já faz alguns anos e se tem uma coisa que eu sempre tive que lidar são cores em hexadecimal. Nesse texto eu compartilho o que aprendi e deixo uma ~surpresa~ no final."
 ---
 
-Eu trabalho com front-end já faz alguns anos e se tem uma coisa que eu sempre tive que lidar são cores em hexadecimal.
+Trabalho com front-end já faz alguns anos e se tem uma coisa que sempre tive que lidar são cores em hexadecimal.
 
-\#FF2354, #454ACC, #C0FFEE, você sabe do que eu estou falando.
+\#FF2354, #454ACC, #C0FFEE, você sabe do que estou falando.
 
 Recentemente uma coisa começou a me incomodar, apesar de usar esse tipo de representação por ANOS, nunca fui capaz de identificar uma cor mais diferentona em hexadecimal.
 
@@ -169,7 +169,7 @@ Invertendo a ordem você fica com #88FF00, metade do R e todo G possível, o que
 
 ##Vamos aprender na prática
 
-Pronto, e foi assim eu te ensinei tudo que aprendi sobre cores em hexadecimal. 
+Pronto, e foi assim que te ensinei tudo o que aprendi sobre cores em hexadecimal. 
 
 Vale lembrar que eu só toquei bem de leve no assunto "cores em dispositivos digitais". De modo geral acabei me surpreendendo em relação a o quão complexo e interessante é esse assunto.
 

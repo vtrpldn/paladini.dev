@@ -19,7 +19,7 @@ const BlogPostTemplate = ({ data, pageContext }) => {
       />
       <h1>{post.frontmatter.title}</h1>
       <p>
-        {post.frontmatter.date}
+        Publicado em: {post.frontmatter.date}
       </p>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       {/* <hr />
@@ -59,7 +59,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
-        date(formatString: "DD MMMM, YYYY")
+        date(formatString: "DD/MM/YY")
         description
       }
     }

@@ -25,12 +25,12 @@ const BlogIndex = ({ data }) => {
         const title = node.frontmatter.title || node.fields.slug
         return (
           <Post key={node.fields.slug}>
-            <h2>
+            <h1>
               <Link to={node.fields.slug}>
                 {title}
               </Link>
-            </h2>
-            <p>{node.frontmatter.date}</p>
+            </h1>
+            <p>Publicado em {node.frontmatter.date}</p>
             <p
               dangerouslySetInnerHTML={{
                 __html: node.frontmatter.description || node.excerpt,
@@ -60,7 +60,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "DD/MM/YY")
             title
             description
           }
