@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
-    title: `paladini.dev`,
+    title: `por Vitor Paladini`,
     author: `Vitor Paladini`,
-    description: `Personal website and blog.`,
+    description: `Blog e site pessoal`,
     siteUrl: `https://paladini.dev/`,
     social: {
       twitter: `vtrpldn`,

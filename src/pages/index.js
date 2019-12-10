@@ -18,7 +18,7 @@ const BlogIndex = ({ data }) => {
   return (
     <Layout title={siteTitle}>
       <SEO
-        title="All posts"
+        title="paladini.dev"
         keywords={[`blog`, `gatsby`, `javascript`, `react`]}
       />
       {posts.map(({ node }) => {

@@ -8,6 +8,39 @@ const Wrapper = styled.div`
   max-width: 650px;
   margin: 0 auto;
   padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const Left = styled.div`
+`
+
+const Right = styled.div`
+`
+
+const DarkmodeIcon = styled.div`
+  font-size: 32px;
+`
+
+const DarkmodeMessage = styled.div`
+  width: 130px; 
+  transition: margin-right .3s ease;
+  margin-right: -130px;
+`
+
+const Darkmode = styled.div`
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  &:hover {
+    ${DarkmodeMessage} {
+      visibility: visible;
+      margin-left: 10px;
+      margin-right: 0;
+    }
+  }
 `
 
 const Logo = styled.div`
@@ -17,14 +50,24 @@ const Logo = styled.div`
 const Header = () => {
   return (
     <Wrapper>
-      <div>
+      <Left>
         <Link to="/">
           <Logo>
             paladini.dev
-          </Logo>
+        </Logo>
         </Link>
-      </div>
-      <Bio />
+        <Bio />
+      </Left>
+      <Right>
+        <Darkmode onClick={() => alert('Essa funcionalidade não está pronta :)')}>
+          <DarkmodeIcon>
+            🌚
+          </DarkmodeIcon>
+          <DarkmodeMessage>
+            Modo noturno...
+          </DarkmodeMessage>
+        </Darkmode>
+      </Right>
     </Wrapper>
   )
 }

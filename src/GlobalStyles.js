@@ -19,7 +19,7 @@ const GlobalStyle = createGlobalStyle`
   }  
   
   h1 {
-    line-height: 1.5;
+    line-height: 1.2;
     margin-bottom: 20px;
     color: #35357f;
     font-family: 'Work Sans', sans-serif;
@@ -38,7 +38,11 @@ const GlobalStyle = createGlobalStyle`
     color: #35357f;
     font-family: 'Work Sans', sans-serif;
   }
-  
+
+  a {
+    text-decoration: none;
+  }
+
   p {
     color: #2b2b2b;
     line-height: 1.5;

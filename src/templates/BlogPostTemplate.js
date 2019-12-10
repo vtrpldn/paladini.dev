@@ -1,11 +1,27 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import styled from 'styled-components'
+import { graphql } from "gatsby"
 
-import Bio from "../components/Bio"
 import Layout from "../components/Layout"
 import SEO from "../components/Seo"
 
-const BlogPostTemplate = ({ data, pageContext }) => {
+const Title = styled.h1`
+  font-size: 48px;
+`
+
+const Meta = styled.p`
+  display: flex;
+  align-items: center;
+  a {
+    line-height: 0;
+  }
+`
+
+const TwitterIcon = styled.a`
+  margin: 0 5px; 
+`
+
+const BlogPostTemplate = ({ data, pageContext, location }) => {
 
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
@@ -17,10 +33,13 @@ const BlogPostTemplate = ({ data, pageContext }) => {
         title={post.frontmatter.title}
         description={post.frontmatter.description || post.excerpt}
       />
-      <h1>{post.frontmatter.title}</h1>
-      <p>
-        Publicado em: {post.frontmatter.date}
-      </p>
+      <Title>{post.frontmatter.title}</Title>
+      <Meta>
+        Publicado em: {post.frontmatter.date} |
+          <TwitterIcon href={`https://twitter.com/intent/tweet?text=${post.frontmatter.title} - ${location.href}`} target="_blank">
+          🐦 Compartilhe no Twitter
+          </TwitterIcon>
+      </Meta>
       <div dangerouslySetInnerHTML={{ __html: post.html }} />
       {/* <hr />
       <ul>
