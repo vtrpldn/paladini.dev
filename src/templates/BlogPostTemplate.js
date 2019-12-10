@@ -21,11 +21,13 @@ const TwitterIcon = styled.a`
   margin: 0 5px; 
 `
 
-const BlogPostTemplate = ({ data, pageContext, location }) => {
+const BlogPostTemplate = ({ data, pageContext }) => {
 
   const post = data.markdownRemark
   const siteTitle = data.site.siteMetadata.title
   const { previous, next } = pageContext
+
+  const localUrl = typeof window !== 'undefined' ? window.location.href : ''
 
   return (
     <Layout title={siteTitle}>
@@ -36,7 +38,7 @@ const BlogPostTemplate = ({ data, pageContext, location }) => {
       <Title>{post.frontmatter.title}</Title>
       <Meta>
         Publicado em: {post.frontmatter.date} |
-          <TwitterIcon href={`https://twitter.com/intent/tweet?text=${post.frontmatter.title} - ${location.href}`} target="_blank">
+          <TwitterIcon href={`https://twitter.com/intent/tweet?text=${post.frontmatter.title} - ${localUrl}`} target="_blank">
           🐦 Compartilhe no Twitter
           </TwitterIcon>
       </Meta>

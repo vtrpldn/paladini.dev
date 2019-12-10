@@ -59,12 +59,12 @@ const Header = () => {
         <Bio />
       </Left>
       <Right>
-        <Darkmode onClick={() => alert('Essa funcionalidade não está pronta :)')}>
+        <Darkmode>
           <DarkmodeIcon>
             🌚
           </DarkmodeIcon>
           <DarkmodeMessage>
-            Modo noturno...
+            Em breve...
           </DarkmodeMessage>
         </Darkmode>
       </Right>
