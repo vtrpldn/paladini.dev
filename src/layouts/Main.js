@@ -106,7 +106,7 @@ const Footer = styled.div`
 `
 
 const Layout = ({ title, children }) => {
-  const [theme, setTheme] = useState(null)
+  const [theme, setTheme] = useState(themeLight)
 
   const toggleTheme = () => {
     setTheme(theme => {
