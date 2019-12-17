@@ -106,9 +106,7 @@ const Footer = styled.div`
 `
 
 const Layout = ({ title, children }) => {
-  const [theme, setTheme] = useState(
-    localStorage.getItem('theme') === 'dark' ? themeDark : themeLight
-  )
+  const [theme, setTheme] = useState(null)
 
   const toggleTheme = () => {
     setTheme(theme => {
@@ -119,6 +117,14 @@ const Layout = ({ title, children }) => {
       }
     })
   }
+
+  useEffect(() => {
+    setTheme(
+      localStorage.getItem('theme') === 'dark'
+        ? themeDark
+        : themeLight
+    )
+  }, [])
 
   useEffect(() => {
     localStorage.setItem('theme', theme.name)
