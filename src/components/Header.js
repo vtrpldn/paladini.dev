@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ThemeContext } from 'styled-components';
 import { Link } from 'gatsby'
 import styled from 'styled-components'
 import Bio from "../components/Bio"
@@ -21,12 +22,10 @@ const Right = styled.div`
 
 const DarkmodeIcon = styled.div`
   font-size: 32px;
-`
-
-const DarkmodeMessage = styled.div`
-  width: 130px; 
-  transition: margin-right .3s ease;
-  margin-right: -130px;
+  &:hover {
+    transform: rotate(1080deg);
+    transition: transform 0.6s cubic-bezier(0.2, 1.3, 0.7, 1);
+  }
 `
 
 const Darkmode = styled.div`
@@ -34,20 +33,15 @@ const Darkmode = styled.div`
   display: flex;
   align-items: center;
   overflow: hidden;
-  &:hover {
-    ${DarkmodeMessage} {
-      visibility: visible;
-      margin-left: 10px;
-      margin-right: 0;
-    }
-  }
 `
 
 const Logo = styled.div`
   font-size: 30px;
 `
 
-const Header = () => {
+const Header = ({ onClick }) => {
+  const { name } = useContext(ThemeContext)
+
   return (
     <Wrapper>
       <Left>
@@ -59,13 +53,10 @@ const Header = () => {
         <Bio />
       </Left>
       <Right>
-        <Darkmode>
+        <Darkmode onClick={onClick}>
           <DarkmodeIcon>
-            🌚
+            {name === 'dark' ? '🌞' : '🌚'}
           </DarkmodeIcon>
-          <DarkmodeMessage>
-            Em breve...
-          </DarkmodeMessage>
         </Darkmode>
       </Right>
     </Wrapper>

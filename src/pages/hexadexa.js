@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import styled, { css } from 'styled-components'
 import { Link } from 'gatsby'
-import Layout from "../components/Layout"
+import Layout from "../layouts/Main"
 import Button from "../components/Button/Button"
 
 const STATUS = {

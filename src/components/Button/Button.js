@@ -1,12 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled, { css } from 'styled-components'
+import { lighten } from 'polished'
 
 const Wrap = styled.button`
   cursor: pointer;
   position: relative;
   display: inline-block;
-  background-color: #35357f;
+  background-color: ${({ theme }) => theme.colorPrimary};
   color: #FFFFFF;
   font-size: 16px;
   line-height: 1.4;
@@ -18,10 +19,10 @@ const Wrap = styled.button`
   font-weight: 600;
   font-family: 'Work Sans', sans-serif;
   &:hover {
-    background-color: #3f3f96;
+    background-color: ${({ theme }) => lighten(0.2, theme.colorPrimary)};
   }
   &:active {
-    background-color: #4a4ab2;
+    background-color: ${({ theme }) => lighten(0.4, theme.colorPrimary)};
   }
   & + & {
     margin-left: 15px;

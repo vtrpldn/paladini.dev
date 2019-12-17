@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components'
 import { graphql } from "gatsby"
 
-import Layout from "../components/Layout"
+import Layout from "../layouts/Main"
 import SEO from "../components/Seo"
 
 const Title = styled.h1`
@@ -12,59 +12,49 @@ const Title = styled.h1`
 const Meta = styled.p`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   a {
     line-height: 0;
+  }
+  @media (max-width: 767px) {
+    flex-direction: column;
+    align-items: flex-start
   }
 `
 
 const TwitterIcon = styled.a`
   margin: 0 5px; 
+  @media (max-width: 767px) {
+    margin: 30px 0 15px; 
+  }
 `
 
-const BlogPostTemplate = ({ data, pageContext }) => {
+const BlogPostTemplate = ({ data, pageContext, pathContext }) => {
 
-  const post = data.markdownRemark
+  const { slug } = pathContext
   const siteTitle = data.site.siteMetadata.title
-  const { previous, next } = pageContext
+  const shareUrl = `${data.site.siteMetadata.siteUrl}${slug}`
 
-  const localUrl = typeof window !== 'undefined' ? window.location.href : ''
+  const { frontmatter, html, excerpt } = data.markdownRemark
+  const { title, description, date } = frontmatter
 
   return (
     <Layout title={siteTitle}>
       <SEO
-        title={post.frontmatter.title}
-        description={post.frontmatter.description || post.excerpt}
+        title={title}
+        description={description || excerpt}
       />
-      <Title>{post.frontmatter.title}</Title>
+      <Title>{title}</Title>
       <Meta>
-        Publicado em: {post.frontmatter.date} |
-          <TwitterIcon href={`https://twitter.com/intent/tweet?text=${post.frontmatter.title} - ${localUrl}`} target="_blank">
+        Publicado em: {date}
+        <TwitterIcon href={`https://twitter.com/intent/tweet?text=${title} - ${shareUrl}`} target="_blank">
           🐦 Compartilhe no Twitter
-          </TwitterIcon>
+        </TwitterIcon>
       </Meta>
-      <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      {/* <hr />
-      <ul>
-        <li>
-          {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
-            </Link>
-          )}
-        </li>
-        <li>
-          {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
-              </Link>
-          )}
-        </li>
-      </ul> */}
+      <div dangerouslySetInnerHTML={{ __html: html }} />
     </Layout>
   )
 }
-
-export default BlogPostTemplate
 
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
@@ -72,6 +62,7 @@ export const pageQuery = graphql`
       siteMetadata {
         title
         author
+        siteUrl
       }
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
@@ -86,3 +77,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+export default BlogPostTemplate

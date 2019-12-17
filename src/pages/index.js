@@ -2,7 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import styled from 'styled-components'
 
-import Layout from "../components/Layout"
+import Layout from "../layouts/Main"
 import SEO from "../components/Seo"
 
 const Post = styled.div`
