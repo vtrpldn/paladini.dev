@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 import Layout, { mq } from "../components/layout"
 import Image from "../components/image"
-import SEO from "../components/seo"
+import SEO from "../components/Seo"
 import Space from "../components/space"
 import { css } from "@emotion/core"
 
