@@ -25,11 +25,14 @@ const styles = css`
   }
   body {
     font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   p {
     font-family: Graphik;
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.8;
     width: 100%;
     max-width: 540px;
     margin-bottom: 20px;

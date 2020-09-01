@@ -24,8 +24,8 @@ const IndexPage = () => (
         })}
       `}
     >
-      Hello, I'm Vitor Paladini. I'm a Front-end Engineer and I write funny
-      stuff about web development.
+      Hello, I'm Vitor Paladini. I'm a Front-end Engineer and I write some real
+      funny stuff about web development.
     </h1>
     <p>
       I've built dozens of websites for small and medium-sized businesses, led a
@@ -33,7 +33,7 @@ const IndexPage = () => (
       company.
     </p>
     <p>
-      I now work at a Copenhagen-based 🇩🇰&nbsp; startup building next-generation
+      I now work at a Copenhagen-based 🇩🇰 startup building next-generation
       travel management software.
     </p>
     <p>
