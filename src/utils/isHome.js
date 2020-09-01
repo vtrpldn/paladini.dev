@@ -1,1 +1,0 @@
-export const isHome = () => window.location.pathname === `${__PATH_PREFIX__}/`
