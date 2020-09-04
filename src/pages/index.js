@@ -130,7 +130,7 @@ const IndexPage = () => {
         </a>
         , check my latest posts on&nbsp;
         <a
-          href="https://twitter.com/vtrpldn"
+          href="https://dev.to/vtrpldn"
           target="_blank"
           rel="noreferrer noopener"
         >
@@ -138,7 +138,7 @@ const IndexPage = () => {
         </a>
         , and my work stuff in my&nbsp;
         <a
-          href="https://twitter.com/vitorpaladini"
+          href="https://www.linkedin.com/in/vitorpaladini/"
           target="_blank"
           rel="noreferrer noopener"
         >
