@@ -95,6 +95,9 @@ const styles = css`
         }
       }
     }
+    h2 {
+      font-family: Graphik, sans-serif;
+    }
     p {
       color: #eee;
       a {
@@ -115,10 +118,10 @@ const Layout = ({ children }) => {
         <main
           css={css`
             transition: padding 0.3s ease;
-            padding-top: clamp(1.875rem, 5vw, 10rem);
-            padding-bottom: clamp(5.625rem, 5vw, 10rem);
-            padding-right: clamp(1.875rem, 5vw, 11.25rem);
-            padding-left: clamp(1.875rem, 5vw, 11.25rem);
+            padding-top: clamp(1.875rem, 10vw, 10rem);
+            padding-bottom: clamp(5.625rem, 10vw, 10rem);
+            padding-right: clamp(1.875rem, 10vw, 11.25rem);
+            padding-left: clamp(1.875rem, 10vw, 11.25rem);
           `}
         >
           {children}
