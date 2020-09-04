@@ -25,29 +25,29 @@ const styles = css`
   }
   body {
     font-size: 16px;
+    font-family: Graphik, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
   h1 {
-    font-family: Canela;
+    font-family: Canela, sans-serif;
     line-height: 1.1;
     font-weight: 100;
-    transition: font-size 0.3s ease;
     width: 100%;
     max-width: 1080px;
-    font-size: clamp(2rem, 5vw, 6.62rem);
-    margin-bottom: clamp(2rem, 5vw, 6.62rem);
+    font-size: clamp(2rem, 1rem + 4vw, 6.62rem);
+    margin-bottom: clamp(2rem, 1rem + 4vw, 6.62rem);
   }
   h2 {
-    font-family: Canela;
+    font-family: Canela, sans-serif;
     line-height: 1.3;
-    font-weight: 100;
+    font-weight: 300;
     transition: font-size 0.3s ease;
     width: 100%;
     max-width: 1080px;
-    font-size: clamp(1.5rem, 5vw, 2rem);
-    margin-bottom: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.5rem, 1rem + 2vw, 2rem);
+    margin-bottom: clamp(2rem, 1rem + 2vw, 3rem);
     a {
       color: #000000;
       text-decoration: none;
@@ -65,11 +65,11 @@ const styles = css`
     width: 100%;
     max-width: 540px;
     margin-bottom: 1.25rem;
-    color: #808080;
+    color: #444;
     a {
       color: #000000;
       text-decoration: none;
-      border-bottom: solid 1px #808080;
+      border-bottom: solid 1px #444;
       padding: 2px 0;
       &:hover {
         border-bottom: solid 1px #000000;
@@ -79,6 +79,31 @@ const styles = css`
   hr {
     border: none;
     border-top: solid 1px #e2e2e2;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    body {
+      background: #000;
+    }
+    h1,
+    h2 {
+      color: #eee;
+      a {
+        color: #eee;
+        &:hover {
+          border-bottom: solid 1px #e2e2e2;
+        }
+      }
+    }
+    p {
+      color: #eee;
+      a {
+        color: #eee;
+        &:hover {
+          border-bottom: solid 1px #eee;
+        }
+      }
+    }
   }
 `
 

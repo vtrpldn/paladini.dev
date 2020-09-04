@@ -26,6 +26,25 @@ const IndexPage = () => {
     }
   `)
 
+  const featured = articles.edges.reduce(
+    (prev, { node: { article } }, ind, arr) => {
+      switch (article.id) {
+        case 380582:
+          prev[0] = article
+          return prev
+        case 412148:
+          prev[1] = article
+          return prev
+        case 426071:
+          prev[2] = article
+          return prev
+        default:
+          return prev
+      }
+    },
+    []
+  )
+
   return (
     <Layout>
       <SEO title="Hello, I'm Vitor Paladini" />
@@ -57,6 +76,49 @@ const IndexPage = () => {
         </a>{" "}
         building next-generation travel management software.
       </p>
+      <p
+        css={css`
+          margin-top: 5.62rem;
+        `}
+      >
+        Here's some articles that I'm really proud of:
+      </p>
+      <div
+        css={css`
+          max-width: 540px;
+        `}
+      >
+        {featured.map(article => {
+          const date = new Intl.DateTimeFormat("en-US", {
+            month: "short",
+            day: "2-digit",
+            year: "numeric",
+          }).format(new Date(article.published_at))
+          console.log(article.tags)
+          return (
+            <div key={article.id}>
+              <hr
+                css={css`
+                  margin-bottom: 2.5rem;
+                `}
+              />
+              <p>
+                {date},{" "}
+                {article.tags.map(tag => (
+                  <>
+                    <a href={`https://dev.to/${tag}`}>#{tag}</a>&nbsp;
+                  </>
+                ))}
+              </p>
+              <h2>
+                <a href={article.url} target="_blank" rel="noreferrer noopener">
+                  {article.title}
+                </a>
+              </h2>
+            </div>
+          )
+        })}
+      </div>
       <p>
         You can say hi on{" "}
         <a
@@ -84,41 +146,6 @@ const IndexPage = () => {
         </a>
         &nbsp;profile.
       </p>
-      <p
-        css={css`
-          margin-top: clamp(2rem, 5vw, 5.62rem);
-        `}
-      >
-        My favorite posts
-      </p>
-      <div
-        css={css`
-          max-width: 540px;
-        `}
-      >
-        {articles.edges.map(({ node: { article } }) => {
-          // const publication = new Intl.DateTimeFormat("en-US").format(
-          //   new Date(article.publishedAt)
-          // )
-          // const dateTimeFormat = new Intl.DateTimeFormat("en", {
-          //   year: "numeric",
-          //   month: "short",
-          //   day: "2-digit",
-          // })
-
-          return (
-            <div>
-              <hr />
-              <p>{}</p>
-              <h2>
-                <a href={article.url} target="_blank" rel="noreferrer noopener">
-                  {article.title}
-                </a>
-              </h2>
-            </div>
-          )
-        })}
-      </div>
     </Layout>
   )
 }
