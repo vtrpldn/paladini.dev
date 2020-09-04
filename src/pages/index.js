@@ -68,7 +68,7 @@ const IndexPage = () => {
       <p>
         I now work at a Copenhagen-based 🇩🇰
         <a
-          href="https://twitter.com/paladini_dev"
+          href="https://outboundhq.com/"
           target="_blank"
           rel="noreferrer noopener"
         >
