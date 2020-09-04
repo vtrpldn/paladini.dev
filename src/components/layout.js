@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import { Global, css } from "@emotion/core"
 import facepaint from "facepaint"
 
@@ -29,13 +29,42 @@ const styles = css`
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
   }
+  h1 {
+    font-family: Canela;
+    line-height: 1.1;
+    font-weight: 100;
+    transition: font-size 0.3s ease;
+    width: 100%;
+    max-width: 1080px;
+    font-size: clamp(2rem, 5vw, 6.62rem);
+    margin-bottom: clamp(2rem, 5vw, 6.62rem);
+  }
+  h2 {
+    font-family: Canela;
+    line-height: 1.3;
+    font-weight: 100;
+    transition: font-size 0.3s ease;
+    width: 100%;
+    max-width: 1080px;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+    a {
+      color: #000000;
+      text-decoration: none;
+      padding: 2px 0;
+      &:hover {
+        border-bottom: solid 1px #000000;
+      }
+    }
+  }
+
   p {
     font-family: Graphik;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 1.8;
     width: 100%;
     max-width: 540px;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     color: #808080;
     a {
       color: #000000;
@@ -47,19 +76,13 @@ const styles = css`
       }
     }
   }
+  hr {
+    border: none;
+    border-top: solid 1px #e2e2e2;
+  }
 `
 
 const Layout = ({ children }) => {
-  // const data = useStaticQuery(graphql`
-  //   query SiteTitleQuery {
-  //     site {
-  //       siteMetadata {
-  //         title
-  //       }
-  //     }
-  //   }
-  // `)
-
   return (
     <>
       <Global styles={styles} />
@@ -67,9 +90,10 @@ const Layout = ({ children }) => {
         <main
           css={css`
             transition: padding 0.3s ease;
-            ${mq({
-              padding: ["5.625rem 1.875rem", "4.5rem 4.5rem", "10rem 11.25rem"],
-            })}
+            padding-top: clamp(1.875rem, 5vw, 10rem);
+            padding-bottom: clamp(5.625rem, 5vw, 10rem);
+            padding-right: clamp(1.875rem, 5vw, 11.25rem);
+            padding-left: clamp(1.875rem, 5vw, 11.25rem);
           `}
         >
           {children}

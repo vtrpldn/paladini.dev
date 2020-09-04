@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `I'm a Front-end Engineer and I write some real funny stuff about web development`,
+    title: `Front-end Engineer`,
+    description: `I'm a Front-end Engineer and I write some funky stuff about web development`,
     author: `@gatsbyjs`,
   },
   plugins: [
@@ -21,8 +21,8 @@ module.exports = {
         name: `gatsby-starter-default`,
         short_name: `starter`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#0000`,
+        theme_color: `#0000`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
@@ -37,6 +37,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-emotion`,
+    {
+      resolve: "gatsby-source-dev",
+      options: {
+        // This is your username on Dev.to
+        username: "vtrpldn",
+      },
+    },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
