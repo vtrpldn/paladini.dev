@@ -106,7 +106,7 @@ const IndexPage = () => {
                 {date},{" "}
                 {article.tags.map(tag => (
                   <>
-                    <a href={`https://dev.to/${tag}`}>#{tag}</a>&nbsp;
+                    <a href={`https://dev.to/t/${tag}`}>#{tag}</a>&nbsp;
                   </>
                 ))}
               </p>
