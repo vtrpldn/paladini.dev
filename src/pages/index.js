@@ -70,7 +70,7 @@ const IndexPage = () => {
       <p>
         I now work at a Copenhagen-based 🇩🇰
         <a
-          href="https://twitter.com/paladini_dev"
+          href="https://outboundhq.com/"
           target="_blank"
           rel="noreferrer noopener"
         >
@@ -108,7 +108,7 @@ const IndexPage = () => {
                 {date},{" "}
                 {article.tags.map(tag => (
                   <>
-                    <a href={`https://dev.to/${tag}`}>#{tag}</a>&nbsp;
+                    <a href={`https://dev.to/t/${tag}`}>#{tag}</a>&nbsp;
                   </>
                 ))}
               </p>
