@@ -4,6 +4,7 @@ import { useStaticQuery, Link } from "gatsby"
 import Layout, { mq } from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import Avatar from "../components/Avatar"
 import { css } from "@emotion/core"
 
 const IndexPage = () => {
@@ -49,8 +50,9 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Hello, I'm Vitor Paladini" />
       <h1>
-        Hello, I'm Vitor Paladini. I'm a Front-end Engineer and I write some
-        funky stuff about web development.
+        Hello, I'm Vitor Paladini
+        <Avatar />. I'm a Front-end Engineer and I write some funky stuff about
+        web development.
       </h1>
       <p>
         I've built dozens of websites for small and medium-sized businesses, led
