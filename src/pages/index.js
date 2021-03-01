@@ -148,6 +148,7 @@ const IndexPage = () => {
         </a>
         &nbsp;profile.
       </p>
+      <p>This site is owned and operated by Vitor Paladini Borges.</p>
     </Layout>
   )
 }
